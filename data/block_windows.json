@@ -1,0 +1,110 @@
+[
+  {
+    "block_id": "BLK-101",
+    "section": "Section A-B",
+    "direction": "UP",
+    "date": "2026-09-18",
+    "start_time": "01:30:00",
+    "end_time": "05:30:00",
+    "max_duration_hours": 4.0,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  },
+  {
+    "block_id": "BLK-102",
+    "section": "Section B-C",
+    "direction": "BOTH",
+    "date": "2026-09-18",
+    "start_time": "12:00:00",
+    "end_time": "15:30:00",
+    "max_duration_hours": 3.5,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  },
+  {
+    "block_id": "BLK-103",
+    "section": "Section A-B",
+    "direction": "DOWN",
+    "date": "2026-09-19",
+    "start_time": "02:00:00",
+    "end_time": "05:30:00",
+    "max_duration_hours": 3.5,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  },
+  {
+    "block_id": "BLK-104",
+    "section": "Section B-C",
+    "direction": "UP",
+    "date": "2026-09-19",
+    "start_time": "11:00:00",
+    "end_time": "14:00:00",
+    "max_duration_hours": 3.0,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  },
+  {
+    "block_id": "BLK-105",
+    "section": "Section A-B",
+    "direction": "BOTH",
+    "date": "2026-09-20",
+    "start_time": "01:00:00",
+    "end_time": "05:00:00",
+    "max_duration_hours": 4.0,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  },
+  {
+    "block_id": "BLK-106",
+    "section": "Section C-D",
+    "direction": "UP",
+    "date": "2026-09-21",
+    "start_time": "02:00:00",
+    "end_time": "05:30:00",
+    "max_duration_hours": 3.5,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  },
+  {
+    "block_id": "BLK-107",
+    "section": "Section B-C",
+    "direction": "DOWN",
+    "date": "2026-09-22",
+    "start_time": "12:30:00",
+    "end_time": "16:00:00",
+    "max_duration_hours": 3.5,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  },
+  {
+    "block_id": "BLK-108",
+    "section": "Section C-D",
+    "direction": "BOTH",
+    "date": "2026-09-23",
+    "start_time": "01:30:00",
+    "end_time": "05:00:00",
+    "max_duration_hours": 3.5,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  },
+  {
+    "block_id": "BLK-109",
+    "section": "Section A-B",
+    "direction": "UP",
+    "date": "2026-09-24",
+    "start_time": "11:30:00",
+    "end_time": "14:30:00",
+    "max_duration_hours": 3.0,
+    "status": "Available",
+    "corridor_name": "Mainline Corridor Alpha",
+    "data_label": "DEMO DATA"
+  }
+]

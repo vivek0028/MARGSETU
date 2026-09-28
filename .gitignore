@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+backend/venv/
+
+# Local databases & state
+backend/railblock.db
+backend/pgdata/
+*.db
+*.sqlite
+*.sqlite3
+
+# Node.js dependencies & builds
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing & coverage caches
+.pytest_cache/
+backend/.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor / IDE artifacts
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log

@@ -1,0 +1,56 @@
+[
+  {
+    "resource_id": "RES-001",
+    "name": "Track Machine 1 (BCM)",
+    "resource_type": "Ballast Cleaning Heavy Machine",
+    "department": "Engineering",
+    "home_depot": "Central Rail Depot",
+    "available": true,
+    "data_label": "DEMO DATA"
+  },
+  {
+    "resource_id": "RES-002",
+    "name": "Track Machine 2 (Tamping)",
+    "resource_type": "Track Tamping Machine",
+    "department": "Engineering",
+    "home_depot": "Central Rail Depot",
+    "available": true,
+    "data_label": "DEMO DATA"
+  },
+  {
+    "resource_id": "RES-003",
+    "name": "Signal Maintenance Crew 1",
+    "resource_type": "Specialized S&T Technical Squad",
+    "department": "S&T",
+    "home_depot": "North Junction Depot",
+    "available": true,
+    "data_label": "DEMO DATA"
+  },
+  {
+    "resource_id": "RES-004",
+    "name": "OHE Tower Wagon & Crew",
+    "resource_type": "Traction Distribution Tower Wagon",
+    "department": "Traction",
+    "home_depot": "Division Traction Substation",
+    "available": true,
+    "data_label": "DEMO DATA"
+  },
+  {
+    "resource_id": "RES-005",
+    "name": "Engineering Crew 1",
+    "resource_type": "Civil P-Way Maintenance Gang",
+    "department": "Engineering",
+    "home_depot": "Section A Base",
+    "available": true,
+    "data_label": "DEMO DATA"
+  },
+  {
+    "resource_id": "RES-006",
+    "name": "Engineering Crew 2",
+    "resource_type": "Civil Track Rehabilitation Gang",
+    "department": "Engineering",
+    "home_depot": "Section B Base",
+    "available": true,
+    "data_label": "DEMO DATA"
+  }
+]
