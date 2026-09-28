@@ -24,10 +24,23 @@ import {
 
 // In local development, use empty string by default so Vite's dev server proxy (/api -> 8001)
 // handles requests with zero CORS and zero Safari cross-origin network errors.
-const rawBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "";
+const rawBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? "").trim();
 
-// Ensure trailing slash is removed and strip trailing /api to prevent /api/api/ duplicated paths
-export const API_BASE_URL = rawBaseUrl.trim().replace(/\/+$/, "").replace(/\/api$/, "");
+// Ensure trailing slash is removed, strip trailing /api, and check for unresolved documentation placeholders
+function sanitizeBaseUrl(val: string): string {
+  let cleaned = val.replace(/\/+$/, "").replace(/\/api$/, "");
+  // If user copied example placeholder literally (e.g. https://<your-render-backend-url>.onrender.com)
+  if (cleaned.includes("<") || cleaned.includes(">") || cleaned.includes("your-render-backend-url")) {
+    console.warn(
+      "[MARGSETU API] VITE_API_BASE_URL contains placeholder '<your-render-backend-url>'. " +
+      "Please update your Vercel Project Settings > Environment Variables with your actual Render URL."
+    );
+    return "";
+  }
+  return cleaned;
+}
+
+export const API_BASE_URL = sanitizeBaseUrl(rawBaseUrl);
 
 function getAuthHeader(): Record<string, string> {
   const token = localStorage.getItem("rail_access_token");

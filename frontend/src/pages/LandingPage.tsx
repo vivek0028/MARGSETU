@@ -44,7 +44,12 @@ export const LandingPage: React.FC = () => {
         navigate("/dashboard");
       }, 1200);
     } catch (err: any) {
-      setSyncStatus(`Sync error: ${err.message}`);
+      const rawEnv = (import.meta.env.VITE_API_BASE_URL ?? "");
+      if (rawEnv.includes("your-render-backend-url") || rawEnv.includes("<")) {
+        setSyncStatus("Configuration required: Go to Vercel Project Settings > Environment Variables, and update 'VITE_API_BASE_URL' with your real Render URL (e.g. https://margsetu-backend.onrender.com).");
+      } else {
+        setSyncStatus(`Sync notice: ${err.message}. If using Render free tier, the backend may take 30-45s to wake up on the first request.`);
+      }
     } finally {
       setLoading(false);
     }
