@@ -22,25 +22,26 @@ import {
   TaskResolveResponse
 } from "../types";
 
-// In local development, use empty string by default so Vite's dev server proxy (/api -> 8001)
-// handles requests with zero CORS and zero Safari cross-origin network errors.
-const rawBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? "").trim();
+const LIVE_BACKEND_URL = "https://margsetu.onrender.com";
 
-// Ensure trailing slash is removed, strip trailing /api, and check for unresolved documentation placeholders
-function sanitizeBaseUrl(val: string): string {
-  let cleaned = val.replace(/\/+$/, "").replace(/\/api$/, "");
-  // If user copied example placeholder literally (e.g. https://<your-render-backend-url>.onrender.com)
-  if (cleaned.includes("<") || cleaned.includes(">") || cleaned.includes("your-render-backend-url")) {
-    console.warn(
-      "[MARGSETU API] VITE_API_BASE_URL contains placeholder '<your-render-backend-url>'. " +
-      "Please update your Vercel Project Settings > Environment Variables with your actual Render URL."
-    );
-    return "";
+function getBaseUrl(): string {
+  const envUrl = (import.meta.env.VITE_API_BASE_URL ?? "").trim();
+  
+  // If an explicit valid URL is set (not an unresolved placeholder)
+  if (envUrl && !envUrl.includes("<") && !envUrl.includes(">") && !envUrl.includes("your-render-backend-url")) {
+    return envUrl.replace(/\/+$/, "").replace(/\/api$/, "");
   }
-  return cleaned;
+
+  // When deployed to production (e.g. Vercel), automatically point to the live Render backend
+  if (import.meta.env.PROD || (typeof window !== "undefined" && !window.location.hostname.includes("localhost") && !window.location.hostname.includes("127.0.0.1"))) {
+    return LIVE_BACKEND_URL;
+  }
+
+  // In local development, use empty string so Vite proxy handles /api to port 8001
+  return "";
 }
 
-export const API_BASE_URL = sanitizeBaseUrl(rawBaseUrl);
+export const API_BASE_URL = getBaseUrl();
 
 function getAuthHeader(): Record<string, string> {
   const token = localStorage.getItem("rail_access_token");
