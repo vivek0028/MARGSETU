@@ -168,23 +168,29 @@ Key variables:
 
 ---
 
-### Production Deployment Instructions
+### Production Cloud Deployment (Vercel & Render)
 
-#### 1. Backend Deployment (Render)
-- **Runtime**: Python 3.10+
-- **Build Command**: `pip install -r requirements.txt && python seed_data.py`
-- **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-- **Environment Variables**:
-  - `FRONTEND_ORIGIN`: `https://railblock-advisor-frontend.vercel.app,http://localhost:5173`
-  - `CORS_ALLOW_ALL`: `false`
+MARGSETU is equipped with native Infrastructure-as-Code configurations for zero-friction cloud deployment. See [DEPLOYMENT.md](./DEPLOYMENT.md) for full step-by-step instructions.
 
-#### 2. Frontend Deployment (Vercel)
-- **Framework Preset**: Vite
-- **Root Directory**: `frontend`
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-- **Environment Variables**:
-  - `VITE_API_BASE_URL`: `https://railblock-advisor.onrender.com`
+#### 1. Backend + Database on Render
+- **Method 1 (1-Click Blueprint)**: Connect `vivek0028/MARGSETU` as a Blueprint — Render uses [`render.yaml`](./render.yaml) to automatically provision a managed PostgreSQL database and FastAPI Web Service.
+- **Method 2 (Manual Web Service)**:
+  - Root Directory: `backend`
+  - Runtime: `Python 3`
+  - Build Command: `pip install -r requirements.txt`
+  - Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+  - Environment Variables:
+    - `DATABASE_URL`: Connection string from Render PostgreSQL
+    - `CORS_ALLOW_ALL`: `true`
+    - `JWT_SECRET`: Any secure random secret
+
+#### 2. Frontend on Vercel
+- Import repository: `vivek0028/MARGSETU`
+- Root Directory: `./` (or `frontend`)
+- Framework Preset: `Vite`
+- Build / Output: Managed automatically by root [`vercel.json`](./vercel.json)
+- Environment Variables:
+  - `VITE_API_BASE_URL`: `https://<your-render-backend-url>.onrender.com`
 
 ---
 

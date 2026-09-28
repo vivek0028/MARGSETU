@@ -98,7 +98,7 @@ cors_origins = ["*"] if allow_all else default_origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins,
-    allow_origin_regex=r"^(https://railblock-advisor-frontend.*\.vercel\.app|http://(localhost|127\.0\.0\.1)(:\d+)?)$",
+    allow_origin_regex=r"^(https://.*\.vercel\.app|https://.*\.onrender\.com|http://(localhost|127\.0\.0\.1)(:\d+)?)$",
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allow_headers=["*"],
