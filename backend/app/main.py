@@ -55,7 +55,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health_check():
     return {
         "status": "healthy",
@@ -138,7 +138,7 @@ app.include_router(priority_router)
 app.include_router(audit_router)
 app.include_router(audit_alias_router)
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def root():
     return {
         "project": "MARGSETU",

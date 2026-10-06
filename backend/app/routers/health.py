@@ -3,7 +3,7 @@ from datetime import datetime
 
 router = APIRouter(tags=["Health"])
 
-@router.get("/api/health")
+@router.api_route("/api/health", methods=["GET", "HEAD"])
 def health_check():
     return {
         "status": "healthy",
